@@ -1,0 +1,22 @@
+{
+  "name": "selenium-bootcamp",
+  "version": "1.0.0",
+  "description": "Jest + Selenium Boilerplate",
+  "license": "ISC",
+  "author": "Krizzchanne Cid <kcid@cambridge.org>",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "automation",
+    "jest",
+    "selenium"
+  ],
+  "devDependencies": {
+    "jest": "^26.6.3",
+  },
+  "dependencies": {
+    "chromedriver": "^87.0.0",
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
