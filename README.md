@@ -12,7 +12,7 @@ Clone this repository, navigate to this repository then execute this on the comm
 $ npm install
 ```
 This repository contains 2 sample tests, you can run them using, this will run all .spec.js (test files)  
-Warning: This will launch a google chrome browser  
+**Warning:** This will launch a google chrome browser  
 ```sh
 $ npm test
 ```
