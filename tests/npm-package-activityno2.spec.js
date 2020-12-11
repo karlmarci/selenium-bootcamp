@@ -65,7 +65,10 @@ describe('npmjs.com package search', () => {
           const fbAccName = await (await driver.findElement(By.xpath(`//span[@class='_kao']//h1//a//span`))).getText()
             expect(fbAccName).toEqual('Cambridge Core');
           
+          // Close the focus tab
           await (await driver).close()
+
+          // Focus to main tab
           await (await driver).switchTo().window(mainHandle)
     })
 
@@ -94,7 +97,10 @@ describe('npmjs.com package search', () => {
         const twitterAccName = await driver.findElement(By.xpath(`//div[@class='css-1dbjc4n r-15d164r r-1g94qm0']//span//span`)).getText()
           expect(twitterAccName).toEqual('Cambridge Core');
 
+          // Close the focus tab
           await (await driver).close()
+
+          // Focus to main tab
           await (await driver).switchTo().window(mainHandle)
     })
 
@@ -126,7 +132,10 @@ describe('npmjs.com package search', () => {
         const linkedinAccName = await driver.findElement(By.xpath(`//div[@class='top-card-layout__entity-info-container']//h1`)).getText()
            expect(linkedinAccName).toEqual('Cambridge University Press – Academic');
 
+           // Close the focus tab
            await (await driver).close()
+
+           // Focus to main tab
            await (await driver).switchTo().window(mainHandle)
     })
 
@@ -155,7 +164,10 @@ describe('npmjs.com package search', () => {
         const ytAccName = await driver.findElement(By.xpath(`//div[@class='style-scope ytd-playlist-sidebar-renderer']//h1//a`)).getText()
           expect(ytAccName).toEqual('Cambridge Core');
 
+           // Close the focus tab
            await (await driver).close()
+
+           // Focus to main tab
            await (await driver).switchTo().window(mainHandle)
     })
 
@@ -184,7 +196,10 @@ describe('npmjs.com package search', () => {
         const instaAccName = await driver.findElement(By.xpath(`//div[@class='nZSzR']//h2`)).getText()
           expect(instaAccName).toEqual('cupacademic');
 
+           // Close the focus tab
            await (await driver).close()
+
+           // Focus to main tab
            await (await driver).switchTo().window(mainHandle)
 
           // Close the Browser
