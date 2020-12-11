@@ -23,7 +23,7 @@ describe('npmjs.com package search', () => {
     .setChromeOptions(chromeOptions)
     .build()
 
-    it('Navigate the google page title', async () => {
+    it('Navigate the google page title', async() => {
         //Open the Browser
         await driver.get('https://www.google.com/')
 
@@ -35,31 +35,32 @@ describe('npmjs.com package search', () => {
           })
         }, 120000)
 
-            //Validate that the title matcthes expected to homepage title
+            // Validate that the title matcthes expected to homepage title
             const homepageTitle = await driver.getTitle()
                 expect(homepageTitle).toEqual('Google')
-
-            console.log(homepageTitle);
     })
 
-    it('Navigate the search page title', async () => {
+    it('Navigate the search page title', async() => {
         // Fill up the search field and click the enter key
-        await driver.findElement(By.xpath("//body/div[@id='viewport']/div[@id='searchform']/form[@id='tsf']/div[2]/div[1]/div[1]/div[1]/div[2]/input[1]"))
+        await driver.findElement(By.xpath("//input[@name='q']"))
         .sendKeys('selenium bootcamp', Key.ENTER)
 
-            // Validate that the searched value match to the search page title
+            // Validate the search page title contains search criteria -"selenium bootcamp-Google Search
             const searchpageTitle = await driver.getTitle()
                 expect(searchpageTitle).toEqual('selenium bootcamp - Google Search')
-
-            console.log(searchpageTitle)
     })
 
-    it('Navigate the search result', async () => { 
-    // Validate that this package matches our search criteria
-     const test = await driver.findElement(By.xpath("//span[contains(text(),'Selenium Bootcamp - Chapter 1 | Sauce Labs')]"))
-        expect(test).toBeTruthy();
-    
-    // Close the Browser
-     await driver.quit()
-    })    
+    it('Navigate the search result', async() => { 
+        // Validate the first search result contains words from our search criteria: "selenium“ or "bootcamp“
+        const test = await (await driver.findElement(By.xpath(`//div[@class='rc']//h3//span`)))
+          expect(test).toBeTruthy()
+        for(testing in test)
+        {
+          const arraytest = await test.getText()
+            expect(/selenium|bootcamp/ig.test(arraytest)).toBeTruthy()
+        }
+        
+        //Close the Browser
+        await driver.quit()
+  })    
 })
